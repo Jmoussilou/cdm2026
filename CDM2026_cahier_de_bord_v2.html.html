@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>CDM 2026 🇫🇷🇵🇹</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fr:#003189; --pt:#006600; --gold:#c9a84c; --gold2:#f0c060;
+  --bg:#0a0c10; --bg2:#12151e; --bg3:#181c28;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --text:#eef0f7; --muted:#6b7590; --orange:#e07820; --red:#cc3333;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+/* ═══ HEADER ═══ */
+.header{
+  position:relative;overflow:hidden;
+  padding:2rem 1rem 1.5rem;text-align:center;
+  background:linear-gradient(170deg,#080a0f 0%,#0d1220 50%,#090c14 100%);
+  border-bottom:1px solid var(--border);
+}
+.header::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 60%,rgba(0,49,137,.2) 0%,transparent 55%),
+             radial-gradient(ellipse at 80% 40%,rgba(0,102,0,.2) 0%,transparent 55%),
+             radial-gradient(ellipse at 50% 100%,rgba(201,168,76,.08) 0%,transparent 50%);
+  pointer-events:none;
+}
+.header-flags{font-size:2.2rem;letter-spacing:-4px;margin-bottom:.5rem;position:relative}
+.header-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.2rem,9vw,4rem);
+  letter-spacing:3px;line-height:1;
+  color:var(--text);margin-bottom:.3rem;position:relative;
+}
+.header-title span{color:var(--gold2)}
+.header-sub{font-size:.7rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.4rem;position:relative}
+
+/* COUNTDOWN */
+.countdown{
+  display:inline-flex;align-items:center;gap:4px;
+  background:rgba(255,255,255,.04);border:1px solid var(--border2);
+  border-radius:14px;padding:.85rem 1.1rem;position:relative;
+}
+.cd-unit{display:flex;flex-direction:column;align-items:center;min-width:48px}
+.cd-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5.5vw,2.5rem);color:var(--gold2);line-height:1}
+.cd-label{font-size:.52rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
+.cd-sep{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:rgba(255,255,255,.18);padding-bottom:8px}
+.cd-sub{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.5rem;position:relative}
+
+/* ═══ TABS ═══ */
+.tabs-wrap{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border)}
+.tabs{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:0 .5rem}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  flex:0 0 auto;padding:.8rem 1rem;font-size:.78rem;font-weight:500;
+  color:var(--muted);cursor:pointer;border:none;border-bottom:2px solid transparent;
+  background:none;white-space:nowrap;transition:color .2s,border-color .2s;
+  font-family:'DM Sans',sans-serif;-webkit-tap-highlight-color:transparent;
+}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--gold2);border-bottom-color:var(--gold2)}
+
+/* ═══ CONTENT ═══ */
+.content{max-width:720px;margin:0 auto;padding:1.1rem .85rem 3rem}
+.sec{display:none}.sec.active{display:block}
+
+/* ═══ MATCH ROW ═══ */
+.phase-label{
+  font-size:.62rem;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.09em;
+  margin:1.3rem 0 .55rem;padding-bottom:5px;border-bottom:1px solid var(--border);
+}
+.mlist{display:flex;flex-direction:column;gap:5px}
+.mrow{
+  display:flex;flex-direction:column;
+  padding:9px 12px;background:var(--bg2);
+  border:1px solid var(--border);border-left:3px solid var(--border2);
+  border-radius:10px;transition:background .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.mrow:active{background:var(--bg3)}
+.mrow.fr{border-left-color:var(--fr)}
+.mrow.pt{border-left-color:var(--pt)}
+.mrow.tr{border-left-color:#c8102e}
+.mrow.ma{border-left-color:#006233}
+.mrow.dz{border-left-color:#006233}
+.mrow.cv{border-left-color:#003893}
+.mrow.finale{border-left-color:var(--gold2);background:rgba(201,168,76,.06)}
+.mrow-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:3px}
+.mrow-bot{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.mdate{font-size:.67rem;color:var(--muted);white-space:nowrap;flex-shrink:0;line-height:1.5;padding-top:1px}
+.mteams{font-size:.88rem;font-weight:500;color:var(--text);flex:1;line-height:1.4}
+.mheure{font-size:.85rem;font-weight:600;color:var(--text);white-space:nowrap;flex-shrink:0}
+.mheure.nuit{color:var(--orange)}
+.mstade{font-size:.63rem;color:var(--muted);flex:1}
+
+/* BADGES */
+.badge{display:inline-block;font-size:.6rem;font-weight:600;padding:2px 7px;border-radius:4px;letter-spacing:.03em;flex-shrink:0}
+.bfree{background:rgba(39,174,96,.18);color:#2ecc71;border:1px solid rgba(39,174,96,.28)}
+.bpay{background:rgba(220,120,32,.14);color:#e07820;border:1px solid rgba(220,120,32,.28)}
+
+/* FILTERS */
+.filt-row{display:flex;gap:5px;margin-bottom:.9rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+.filt-row::-webkit-scrollbar{display:none}
+.fbtn{
+  flex:0 0 auto;font-size:.71rem;padding:5px 12px;border-radius:20px;
+  border:1px solid var(--border2);background:transparent;cursor:pointer;
+  color:var(--muted);transition:all .15s;font-family:'DM Sans',sans-serif;white-space:nowrap;
+  -webkit-tap-highlight-color:transparent;
+}
+.fbtn.on{background:rgba(201,168,76,.15);color:var(--gold2);border-color:rgba(201,168,76,.35)}
+
+/* NOTE */
+.note{
+  background:rgba(255,255,255,.03);border-left:3px solid var(--gold);
+  border-radius:0 8px 8px 0;padding:9px 13px;
+  font-size:.75rem;color:var(--muted);margin-bottom:.9rem;line-height:1.7;
+}
+.note strong{color:var(--text)}
+
+/* KPI */
+.kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:1.2rem}
+@media(min-width:380px){.kpi{grid-template-columns:repeat(3,1fr)}}
+.kpi-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+.kpi-label{font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+.kpi-val{font-size:.95rem;font-weight:600;color:var(--text)}
+
+/* GROUPES */
+.grp-grid{display:grid;grid-template-columns:1fr;gap:6px}
+@media(min-width:460px){.grp-grid{grid-template-columns:repeat(2,1fr)}}
+.grp-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:9px 11px}
+.grp-card.fr-grp{border-color:rgba(0,49,137,.6)}
+.grp-card.pt-grp{border-color:rgba(0,102,0,.6)}
+.grp-name{font-size:.6rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
+.grp-card.fr-grp .grp-name{color:#5580e0}
+.grp-card.pt-grp .grp-name{color:#44aa44}
+.grp-teams{font-size:.8rem;color:var(--text);line-height:1.95}
+
+/* TV */
+.tv-block{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:.9rem 1rem;margin-bottom:8px}
+.tv-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.tv-icon{font-size:1.4rem;flex-shrink:0}
+.tv-name{font-size:.9rem;font-weight:600;color:var(--text)}
+.tv-sub{font-size:.68rem;color:var(--muted)}
+.tv-list{font-size:.75rem;color:var(--muted);padding-left:14px;line-height:2.2}
+.tv-list strong{color:var(--text)}
+
+/* LEGEND */
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:.9rem;font-size:.7rem;color:var(--muted)}
+.leg-item{display:flex;align-items:center;gap:5px}
+.leg-bar{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+
+/* FOOTER */
+.footer{text-align:center;padding:1.2rem 1rem;font-size:.65rem;color:var(--muted);border-top:1px solid var(--border);margin-top:2rem;line-height:1.9}
+
+.hint{font-size:.62rem;color:var(--muted);margin-top:8px;line-height:1.6}
+.star-badge{font-size:.58rem;color:var(--gold2);background:rgba(201,168,76,.15);border-radius:3px;padding:1px 5px;margin-left:3px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-flags">🇫🇷🇵🇹🇲🇦🇩🇿🇨🇻🇹🇷</div>
+  <div class="header-title">Coupe du Monde <span>2026</span></div>
+  <div class="header-sub">USA · Mexique · Canada · 11 juin – 19 juillet 2026</div>
+  <div class="countdown" id="countdown">
+    <div class="cd-unit"><div class="cd-num" id="cd-j">--</div><div class="cd-label">Jours</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-h">--</div><div class="cd-label">Heures</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-m">--</div><div class="cd-label">Min</div></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><div class="cd-num" id="cd-s">--</div><div class="cd-label">Sec</div></div>
+  </div>
+  <div class="cd-sub">⏱ avant le coup d'envoi · 11 juin 21h00 (Paris)</div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('bleus',this)">🇫🇷 Bleus</button>
+    <button class="tab" onclick="showTab('selecao',this)">🇵🇹 Seleção</button>
+    <button class="tab" onclick="showTab('planning',this)">📅 Planning</button>
+    <button class="tab" onclick="showTab('groupes',this)">⚽ Groupes</button>
+    <button class="tab" onclick="showTab('tv',this)">📺 TV</button>
+    <button class="tab" onclick="showTab('infos',this)">ℹ️ Infos</button>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ══ BLEUS ══ -->
+<div class="sec active" id="sec-bleus">
+  <div class="note"><strong>Groupe I</strong> · New York · Philadelphie · Boston · Diffusion <strong>M6 gratuit</strong> pour tous les matchs</div>
+  <div class="phase-label">Phase de groupes</div>
+  <div class="mlist">
+    <div class="mrow fr">
+      <div class="mrow-top"><div class="mdate">Lun 16 juin</div><div class="mteams">🇫🇷 France vs Sénégal 🇸🇳</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife Stadium – New York/NJ</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow fr">
+      <div class="mrow-top"><div class="mdate">Lun 22 juin</div><div class="mteams">🇫🇷 France vs Irak 🇮🇶</div><div class="mheure">23h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Lincoln Financial Field – Philadelphie</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow fr">
+      <div class="mrow-top"><div class="mdate">Ven 26 juin</div><div class="mteams">🇳🇴 Norvège vs France 🇫🇷</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Gillette Stadium – Boston</div><span class="badge bfree">M6</span></div>
+    </div>
+  </div>
+  <div class="phase-label">Phase finale (si qualification)</div>
+  <div class="mlist">
+    <div class="mrow fr">
+      <div class="mrow-top"><div class="mdate">Mar 30 juin</div><div class="mteams">🇫🇷 32e de finale</div><div class="mheure">23h00</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife Stadium – New York/NJ</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow fr">
+      <div class="mrow-top"><div class="mdate">4–7 juil.</div><div class="mteams">🇫🇷 Huitième de finale</div><div class="mheure">—</div></div>
+      <div class="mrow-bot"><div class="mstade">À confirmer</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow fr">
+      <div class="mrow-top"><div class="mdate">9–11 juil.</div><div class="mteams">🇫🇷 Quart de finale</div><div class="mheure">—</div></div>
+      <div class="mrow-bot"><div class="mstade">À confirmer</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow fr">
+      <div class="mrow-top"><div class="mdate">14–15 juil.</div><div class="mteams">🇫🇷 Demi-finale</div><div class="mheure">—</div></div>
+      <div class="mrow-bot"><div class="mstade">À confirmer</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow finale">
+      <div class="mrow-top"><div class="mdate">Dim 19 juil.</div><div class="mteams">🏆 Finale</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife Stadium – New York/NJ</div><span class="badge bfree">M6</span></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:.9rem">🔵 2 matchs à <strong>21h prime time</strong> parfaits pour regarder ensemble. Tous les matchs des Bleus <strong>gratuits sur M6</strong>, même en phase finale !</div>
+</div>
+
+<!-- ══ SELECAO ══ -->
+<div class="sec" id="sec-selecao">
+  <div class="note"><strong>Groupe K</strong> · Houston (x2) · Guadalajara · Adversaires : RD Congo · Ouzbékistan · Colombie</div>
+  <div class="phase-label">Phase de groupes</div>
+  <div class="mlist">
+    <div class="mrow pt">
+      <div class="mrow-top"><div class="mdate">Mer 17 juin</div><div class="mteams">🇵🇹 Portugal vs RD Congo 🇨🇩</div><div class="mheure">19h00</div></div>
+      <div class="mrow-bot"><div class="mstade">NRG Stadium – Houston</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow pt">
+      <div class="mrow-top"><div class="mdate">Mar 23 juin</div><div class="mteams">🇵🇹 Portugal vs Ouzbékistan 🇺🇿</div><div class="mheure">19h00</div></div>
+      <div class="mrow-bot"><div class="mstade">NRG Stadium – Houston</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow pt">
+      <div class="mrow-top"><div class="mdate">Mar 24 juin</div><div class="mteams">🇨🇴 Colombie vs RD Congo 🇨🇩</div><div class="mheure nuit">04h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Estadio Akron – Guadalajara <small>(match du groupe K)</small></div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow pt">
+      <div class="mrow-top"><div class="mdate">Sam 27 juin</div><div class="mteams">🇨🇴 Colombie vs Portugal 🇵🇹</div><div class="mheure nuit">à confirmer 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">À confirmer</div><span class="badge bpay">beIN</span></div>
+    </div>
+  </div>
+  <div class="phase-label">Phase finale (si qualification)</div>
+  <div class="mlist">
+    <div class="mrow pt">
+      <div class="mrow-top"><div class="mdate">Ven 4 juil.</div><div class="mteams">🇵🇹 32e de finale (1er Groupe K)</div><div class="mheure nuit">03h30 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Arrowhead Stadium – Kansas City</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow finale">
+      <div class="mrow-top"><div class="mdate">Dim 19 juil.</div><div class="mteams">🏆 Finale</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife Stadium – New York/NJ</div><span class="badge bfree">M6</span></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:.9rem">🟢 1er match à <strong>19h — idéal !</strong> Pour la phase finale du Portugal, beIN Sports nécessaire (sauf finale sur M6).</div>
+</div>
+
+<!-- ══ PLANNING COMPLET ══ -->
+<div class="sec" id="sec-planning">
+  <div class="legend">
+    <div class="leg-item"><div class="leg-bar" style="background:var(--fr)"></div>France</div>
+    <div class="leg-item"><div class="leg-bar" style="background:var(--pt)"></div>Portugal</div>
+    <div class="leg-item"><div class="leg-bar" style="background:#c8102e"></div>Turquie</div>
+    <div class="leg-item"><div class="leg-bar" style="background:#006233"></div>Maroc/Algérie</div>
+    <div class="leg-item" style="color:var(--orange)">🌙 = nuit Paris</div>
+  </div>
+  <div class="filt-row">
+    <button class="fbtn on" onclick="filtre('tous',this)">Tous</button>
+    <button class="fbtn" onclick="filtre('fr',this)">🇫🇷 France</button>
+    <button class="fbtn" onclick="filtre('pt',this)">🇵🇹 Portugal</button>
+    <button class="fbtn" onclick="filtre('tr',this)">🇹🇷 Turquie</button>
+    <button class="fbtn" onclick="filtre('ma',this)">🇲🇦 Maroc</button>
+    <button class="fbtn" onclick="filtre('dz',this)">🇩🇿 Algérie</button>
+    <button class="fbtn" onclick="filtre('cv',this)">🇨🇻 Cap-Vert</button>
+    <button class="fbtn" onclick="filtre('m6',this)">📺 M6</button>
+    <button class="fbtn" onclick="filtre('choc',this)">🔥 Chocs</button>
+  </div>
+
+  <div id="all-matches">
+
+  <div class="phase-label">Journée 1 · 11–17 juin</div>
+  <div class="mlist">
+    <div class="mrow" data-t="tous m6 choc">
+      <div class="mrow-top"><div class="mdate">Jeu 11 juin</div><div class="mteams">🇲🇽 Mexique vs Afrique du Sud 🇿🇦 <span class="star-badge">Ouverture</span></div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Estadio Azteca – Mexico</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Jeu 11 juin</div><div class="mteams">🇰🇷 Corée du Sud vs Rép. tchèque</div><div class="mheure nuit">04h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Estadio Akron – Guadalajara</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">Ven 12 juin</div><div class="mteams">🇨🇦 Canada vs Bosnie-Herzégovine 🇧🇦</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">BMO Field – Toronto</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Ven 12 juin</div><div class="mteams">🇺🇸 États-Unis vs Paraguay 🇵🇾</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">SoFi Stadium – Los Angeles</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Sam 13 juin</div><div class="mteams">🇶🇦 Qatar vs Suisse 🇨🇭</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Levi's Stadium – San Francisco</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc m6">
+      <div class="mrow-top"><div class="mdate">Sam 13 juin</div><div class="mteams">🇧🇷 Brésil vs Maroc 🇲🇦</div><div class="mheure nuit">00h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife Stadium – New York/NJ</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Sam 13 juin</div><div class="mteams">🇭🇹 Haïti vs Écosse 🏴󠁧󠁢󠁳󠁣󠁴󠁿</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Gillette Stadium – Boston</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow tr" data-t="tous tr">
+      <div class="mrow-top"><div class="mdate">Sam 13 juin</div><div class="mteams">🇦🇺 Australie vs Turquie 🇹🇷</div><div class="mheure nuit">06h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">BC Place – Vancouver</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc">
+      <div class="mrow-top"><div class="mdate">Dim 14 juin</div><div class="mteams">🇩🇪 Allemagne vs Curaçao</div><div class="mheure">19h00</div></div>
+      <div class="mrow-bot"><div class="mstade">NRG Stadium – Houston</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc">
+      <div class="mrow-top"><div class="mdate">Dim 14 juin</div><div class="mteams">🇳🇱 Pays-Bas vs Japon 🇯🇵</div><div class="mheure">22h00</div></div>
+      <div class="mrow-bot"><div class="mstade">AT&amp;T Stadium – Dallas</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Dim 14 juin</div><div class="mteams">🇨🇮 Côte d'Ivoire vs Équateur 🇪🇨</div><div class="mheure nuit">01h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Lincoln Financial Field – Philadelphie</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Dim 14 juin</div><div class="mteams">🇸🇪 Suède vs Tunisie 🇹🇳</div><div class="mheure nuit">04h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Estadio BBVA – Monterrey</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc m6">
+      <div class="mrow-top"><div class="mdate">Lun 15 juin</div><div class="mteams">🇪🇸 Espagne vs Cap-Vert 🇨🇻</div><div class="mheure">18h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Mercedes-Benz Stadium – Atlanta</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">Lun 15 juin</div><div class="mteams">🇧🇪 Belgique vs Égypte 🇪🇬</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Lumen Field – Seattle</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Lun 15 juin</div><div class="mteams">🇸🇦 Arabie Saoudite vs Uruguay 🇺🇾</div><div class="mheure nuit">00h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Hard Rock Stadium – Miami</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Lun 15 juin</div><div class="mteams">🇮🇷 Iran vs Nouvelle-Zélande 🇳🇿</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">SoFi Stadium – Los Angeles</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow fr" data-t="tous fr m6 choc">
+      <div class="mrow-top"><div class="mdate">Mar 16 juin</div><div class="mteams">🇫🇷 France vs Sénégal 🇸🇳</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife Stadium – New York/NJ</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Mar 16 juin</div><div class="mteams">🇮🇶 Irak vs Norvège 🇳🇴</div><div class="mheure nuit">00h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Gillette Stadium – Boston</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow dz" data-t="tous dz choc">
+      <div class="mrow-top"><div class="mdate">Mar 16 juin</div><div class="mteams">🇦🇷 Argentine vs Algérie 🇩🇿</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Arrowhead Stadium – Kansas City</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Mar 16 juin</div><div class="mteams">🇦🇹 Autriche vs Jordanie 🇯🇴</div><div class="mheure nuit">06h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Levi's Stadium – San Francisco</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow pt" data-t="tous pt m6">
+      <div class="mrow-top"><div class="mdate">Mer 17 juin</div><div class="mteams">🇵🇹 Portugal vs RD Congo 🇨🇩</div><div class="mheure">19h00</div></div>
+      <div class="mrow-bot"><div class="mstade">NRG Stadium – Houston</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc">
+      <div class="mrow-top"><div class="mdate">Mer 17 juin</div><div class="mteams">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre vs Croatie 🇭🇷</div><div class="mheure">22h00</div></div>
+      <div class="mrow-bot"><div class="mstade">AT&amp;T Stadium – Dallas</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Mer 17 juin</div><div class="mteams">🇬🇭 Ghana vs Panama 🇵🇦</div><div class="mheure nuit">01h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">BMO Field – Toronto</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Mer 17 juin</div><div class="mteams">🇺🇿 Ouzbékistan vs Colombie 🇨🇴</div><div class="mheure nuit">04h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Estadio Azteca – Mexico</div><span class="badge bpay">beIN</span></div>
+    </div>
+  </div>
+
+  <div class="phase-label">Journée 2 · 18–23 juin</div>
+  <div class="mlist">
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Jeu 18 juin</div><div class="mteams">🇨🇿 Rép. tchèque vs Afrique du Sud 🇿🇦</div><div class="mheure">18h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Mercedes-Benz Stadium – Atlanta</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">Jeu 18 juin</div><div class="mteams">🇨🇭 Suisse vs Bosnie-Herzégovine</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">SoFi Stadium – Los Angeles</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Jeu 18 juin</div><div class="mteams">🇨🇦 Canada vs Qatar 🇶🇦</div><div class="mheure nuit">00h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">BC Place – Vancouver</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Jeu 18 juin</div><div class="mteams">🇲🇽 Mexique vs Corée du Sud 🇰🇷</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Estadio Akron – Guadalajara</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc m6">
+      <div class="mrow-top"><div class="mdate">Ven 19 juin</div><div class="mteams">🇺🇸 États-Unis vs Australie 🇦🇺</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Lumen Field – Seattle</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow ma" data-t="tous ma">
+      <div class="mrow-top"><div class="mdate">Ven 19 juin</div><div class="mteams">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Écosse vs Maroc 🇲🇦</div><div class="mheure nuit">00h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Gillette Stadium – Boston</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Ven 19 juin</div><div class="mteams">🇧🇷 Brésil vs Haïti 🇭🇹</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Lincoln Financial Field – Philadelphie</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow tr" data-t="tous tr">
+      <div class="mrow-top"><div class="mdate">Ven 19 juin</div><div class="mteams">🇹🇷 Turquie vs Paraguay 🇵🇾</div><div class="mheure nuit">06h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Levi's Stadium – San Francisco</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc">
+      <div class="mrow-top"><div class="mdate">Sam 20 juin</div><div class="mteams">🇳🇱 Pays-Bas vs Suède 🇸🇪</div><div class="mheure">19h00</div></div>
+      <div class="mrow-bot"><div class="mstade">NRG Stadium – Houston</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc">
+      <div class="mrow-top"><div class="mdate">Sam 20 juin</div><div class="mteams">🇩🇪 Allemagne vs Côte d'Ivoire 🇨🇮</div><div class="mheure">22h00</div></div>
+      <div class="mrow-bot"><div class="mstade">BMO Field – Toronto</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Sam 20 juin</div><div class="mteams">🇪🇨 Équateur vs Curaçao</div><div class="mheure nuit">02h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Arrowhead Stadium – Kansas City</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Sam 20 juin</div><div class="mteams">🇹🇳 Tunisie vs Japon 🇯🇵</div><div class="mheure nuit">06h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Estadio BBVA – Monterrey</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc m6">
+      <div class="mrow-top"><div class="mdate">Dim 21 juin</div><div class="mteams">🇪🇸 Espagne vs Arabie Saoudite 🇸🇦</div><div class="mheure">18h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Mercedes-Benz Stadium – Atlanta</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">Dim 21 juin</div><div class="mteams">🇧🇪 Belgique vs Iran 🇮🇷</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">SoFi Stadium – Los Angeles</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Dim 21 juin</div><div class="mteams">🇺🇾 Uruguay vs Cap-Vert 🇨🇻</div><div class="mheure nuit">00h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Hard Rock Stadium – Miami</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Dim 21 juin</div><div class="mteams">🇳🇿 Nouvelle-Zélande vs Égypte 🇪🇬</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">BC Place – Vancouver</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc">
+      <div class="mrow-top"><div class="mdate">Lun 22 juin</div><div class="mteams">🇦🇷 Argentine vs Autriche 🇦🇹</div><div class="mheure">19h00</div></div>
+      <div class="mrow-bot"><div class="mstade">AT&amp;T Stadium – Dallas</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow fr" data-t="tous fr m6">
+      <div class="mrow-top"><div class="mdate">Lun 22 juin</div><div class="mteams">🇫🇷 France vs Irak 🇮🇶</div><div class="mheure">23h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Lincoln Financial Field – Philadelphie</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Lun 22 juin</div><div class="mteams">🇳🇴 Norvège vs Sénégal 🇸🇳</div><div class="mheure nuit">02h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife Stadium – New York/NJ</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow dz" data-t="tous dz">
+      <div class="mrow-top"><div class="mdate">Lun 22 juin</div><div class="mteams">🇯🇴 Jordanie vs Algérie 🇩🇿</div><div class="mheure nuit">05h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Levi's Stadium – San Francisco</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow pt" data-t="tous pt">
+      <div class="mrow-top"><div class="mdate">Mar 23 juin</div><div class="mteams">🇵🇹 Portugal vs Ouzbékistan 🇺🇿</div><div class="mheure">19h00</div></div>
+      <div class="mrow-bot"><div class="mstade">NRG Stadium – Houston</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc">
+      <div class="mrow-top"><div class="mdate">Mar 23 juin</div><div class="mteams">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre vs Ghana 🇬🇭</div><div class="mheure">22h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Gillette Stadium – Boston</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Mar 23 juin</div><div class="mteams">🇵🇦 Panama vs Croatie 🇭🇷</div><div class="mheure nuit">01h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">BMO Field – Toronto</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Mar 23 juin</div><div class="mteams">🇨🇴 Colombie vs RD Congo 🇨🇩</div><div class="mheure nuit">04h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Estadio Akron – Guadalajara</div><span class="badge bpay">beIN</span></div>
+    </div>
+  </div>
+
+  <div class="phase-label">Journée 3 · 24–27 juin (matchs décisifs — simultanés)</div>
+  <div class="mlist">
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">Mer 24 juin</div><div class="mteams">🇨🇭 Suisse vs Canada / 🇧🇦 Bosnie vs Qatar (sim.)</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Vancouver &amp; Seattle</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc m6">
+      <div class="mrow-top"><div class="mdate">Mer 24 juin</div><div class="mteams">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Écosse vs Brésil 🇧🇷 / 🇲🇦 Maroc vs Haïti (sim.)</div><div class="mheure nuit">00h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Miami &amp; Atlanta</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Mer 24 juin</div><div class="mteams">🇲🇽 Rép. tchèque vs Mexique / 🇿🇦 Afrique du Sud vs Corée (sim.)</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Mexico &amp; Monterrey</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc">
+      <div class="mrow-top"><div class="mdate">Jeu 25 juin</div><div class="mteams">🇩🇪 Équateur vs Allemagne / Curaçao vs 🇨🇮 CIV (sim.)</div><div class="mheure">22h00</div></div>
+      <div class="mrow-bot"><div class="mstade">New York &amp; Philadelphie</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Jeu 25 juin</div><div class="mteams">🇫🇸 Suède vs Tunisie / 🇳🇱 Pays-Bas vs Japon (sim.)</div><div class="mheure nuit">01h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Kansas City &amp; Monterrey</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow fr" data-t="tous fr m6">
+      <div class="mrow-top"><div class="mdate">Ven 26 juin</div><div class="mteams">🇳🇴 Norvège vs France 🇫🇷 / 🇸🇳 Sénégal vs Irak (sim.)</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">Boston &amp; New York/NJ</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow dz" data-t="tous dz choc">
+      <div class="mrow-top"><div class="mdate">Ven 26 juin</div><div class="mteams">🇦🇷 Argentine vs Jordanie / 🇩🇿 Algérie vs Autriche (sim.)</div><div class="mheure nuit">03h00 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">Dallas &amp; San Francisco</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow" data-t="tous choc m6">
+      <div class="mrow-top"><div class="mdate">Sam 27 juin</div><div class="mteams">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre vs Panama / 🇬🇭 Ghana vs Croatie (sim.)</div><div class="mheure">23h00</div></div>
+      <div class="mrow-bot"><div class="mstade">New York &amp; Toronto</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow pt" data-t="tous pt">
+      <div class="mrow-top"><div class="mdate">Sam 27 juin</div><div class="mteams">🇨🇴 Colombie vs Portugal 🇵🇹 / Ouzbékistan vs RD Congo (sim.)</div><div class="mheure nuit">à confirmer 🌙</div></div>
+      <div class="mrow-bot"><div class="mstade">À confirmer</div><span class="badge bpay">beIN</span></div>
+    </div>
+  </div>
+
+  <div class="phase-label">Phase finale</div>
+  <div class="mlist">
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">28 juin–3 juil.</div><div class="mteams">32es de finale — 16 matchs</div><div class="mheure">—</div></div>
+      <div class="mrow-bot"><div class="mstade">Tous stades</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">4–7 juil.</div><div class="mteams">Huitièmes de finale — 8 matchs</div><div class="mheure">—</div></div>
+      <div class="mrow-bot"><div class="mstade">Stades principaux</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">9–11 juil.</div><div class="mteams">Quarts de finale — 4 matchs</div><div class="mheure">—</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife / SoFi / AT&amp;T / Hard Rock</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous m6">
+      <div class="mrow-top"><div class="mdate">14–15 juil.</div><div class="mteams">Demi-finales</div><div class="mheure">—</div></div>
+      <div class="mrow-bot"><div class="mstade">AT&amp;T Stadium &amp; SoFi Stadium</div><span class="badge bfree">M6</span></div>
+    </div>
+    <div class="mrow" data-t="tous">
+      <div class="mrow-top"><div class="mdate">Ven 18 juil.</div><div class="mteams">🥉 Match 3e place</div><div class="mheure">—</div></div>
+      <div class="mrow-bot"><div class="mstade">À confirmer</div><span class="badge bpay">beIN</span></div>
+    </div>
+    <div class="mrow finale" data-t="tous m6 choc">
+      <div class="mrow-top"><div class="mdate">Dim 19 juil.</div><div class="mteams">🏆 Finale</div><div class="mheure">21h00</div></div>
+      <div class="mrow-bot"><div class="mstade">MetLife Stadium – New York/NJ</div><span class="badge bfree">M6</span></div>
+    </div>
+  </div>
+  <div class="hint">🌙 = heure du matin à Paris · Tous les horaires en heure de Paris (CEST, UTC+2) · Source : Flashscore / FIFA</div>
+  </div>
+</div>
+
+<!-- ══ GROUPES ══ -->
+<div class="sec" id="sec-groupes">
+  <div class="note">12 groupes de 4 · Les <strong>2 premiers</strong> + <strong>8 meilleurs 3es</strong> → 32es de finale</div>
+  <div class="grp-grid" style="margin-top:10px">
+    <div class="grp-card"><div class="grp-name">Groupe A</div><div class="grp-teams">🇲🇽 Mexique · 🇰🇷 Corée du Sud · 🇨🇿 Rép. tchèque · 🇿🇦 Afrique du Sud</div></div>
+    <div class="grp-card"><div class="grp-name">Groupe B</div><div class="grp-teams">🇨🇦 Canada · 🇧🇦 Bosnie-Herzégovine · 🇨🇭 Suisse · 🇶🇦 Qatar</div></div>
+    <div class="grp-card"><div class="grp-name">Groupe C</div><div class="grp-teams">🇧🇷 Brésil · 🇲🇦 Maroc · 🏴󠁧󠁢󠁳󠁣󠁴󠁿 Écosse · 🇭🇹 Haïti</div></div>
+    <div class="grp-card"><div class="grp-name">Groupe D</div><div class="grp-teams">🇺🇸 États-Unis · 🇹🇷 Turquie · 🇵🇾 Paraguay · 🇦🇺 Australie</div></div>
+    <div class="grp-card"><div class="grp-name">Groupe E</div><div class="grp-teams">🇩🇪 Allemagne · 🇨🇮 Côte d'Ivoire · 🇪🇨 Équateur · Curaçao</div></div>
+    <div class="grp-card"><div class="grp-name">Groupe F</div><div class="grp-teams">🇳🇱 Pays-Bas · 🇯🇵 Japon · 🇹🇳 Tunisie · 🇸🇪 Suède</div></div>
+    <div class="grp-card"><div class="grp-name">Groupe G</div><div class="grp-teams">🇧🇪 Belgique · 🇮🇷 Iran · 🇳🇿 Nouvelle-Zélande · 🇪🇬 Égypte</div></div>
+    <div class="grp-card"><div class="grp-name">Groupe H</div><div class="grp-teams">🇪🇸 Espagne · 🇺🇾 Uruguay · 🇨🇻 Cap-Vert · 🇸🇦 Arabie Saoudite</div></div>
+    <div class="grp-card fr-grp"><div class="grp-name">Groupe I 🇫🇷</div><div class="grp-teams">🇫🇷 France · 🇸🇳 Sénégal · 🇳🇴 Norvège · 🇮🇶 Irak</div></div>
+    <div class="grp-card dz-grp" style="border-color:rgba(0,98,51,.5)"><div class="grp-name" style="color:#44aa55">Groupe J 🇩🇿</div><div class="grp-teams">🇦🇷 Argentine · 🇩🇿 Algérie · 🇯🇴 Jordanie · 🇦🇹 Autriche</div></div>
+    <div class="grp-card pt-grp"><div class="grp-name">Groupe K 🇵🇹</div><div class="grp-teams">🇵🇹 Portugal · 🇨🇴 Colombie · 🇨🇩 RD Congo · 🇺🇿 Ouzbékistan</div></div>
+    <div class="grp-card"><div class="grp-name">Groupe L</div><div class="grp-teams">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angleterre · 🇭🇷 Croatie · 🇵🇦 Panama · 🇬🇭 Ghana</div></div>
+  </div>
+</div>
+
+<!-- ══ TV ══ -->
+<div class="sec" id="sec-tv">
+  <div class="tv-block">
+    <div class="tv-head">
+      <div class="tv-icon">📺</div>
+      <div><div class="tv-name">M6 & M6+</div><div class="tv-sub">Gratuit · 54 matchs</div></div>
+      <span class="badge bfree" style="margin-left:auto">GRATUIT</span>
+    </div>
+    <ul class="tv-list">
+      <li>Tous les matchs de <strong>l'équipe de France</strong></li>
+      <li><strong>Portugal vs RD Congo</strong> — 17 juin, 19h00</li>
+      <li>Les demi-finales et la <strong>Finale — 19 juil. 21h00</strong></li>
+      <li>32 matchs de poule sélectionnés</li>
+      <li>Streaming gratuit sur <strong>M6+</strong> (sans abonnement)</li>
+    </ul>
+  </div>
+  <div class="tv-block">
+    <div class="tv-head">
+      <div class="tv-icon">📡</div>
+      <div><div class="tv-name">beIN Sports</div><div class="tv-sub">Abonnement · 104 matchs complets</div></div>
+      <span class="badge bpay" style="margin-left:auto">PAYANT</span>
+    </div>
+    <ul class="tv-list">
+      <li>Les <strong>104 matchs</strong> en direct</li>
+      <li><strong>Portugal vs Ouzbékistan</strong> (23 juin, 19h)</li>
+      <li><strong>Colombie vs Portugal</strong> (27 juin)</li>
+      <li>Tous les matchs de la Turquie 🇹🇷, Maroc 🇲🇦, Algérie 🇩🇿</li>
+      <li>Via Canal+, Orange, SFR, Bouygues, Free</li>
+    </ul>
+  </div>
+  <div class="note">⚠️ <strong>TF1 absent pour la 1ère fois depuis 1978 !</strong> M6 a récupéré tous les droits gratuits. Pour tout suivre (Portugal, Turquie, Maroc, Algérie), beIN Sports est nécessaire sauf 1er match Portugal + finale.</div>
+</div>
+
+<!-- ══ INFOS ══ -->
+<div class="sec" id="sec-infos">
+  <div class="kpi">
+    <div class="kpi-card"><div class="kpi-label">Coup d'envoi</div><div class="kpi-val">11 juin</div></div>
+    <div class="kpi-card"><div class="kpi-label">Finale</div><div class="kpi-val">19 juil.</div></div>
+    <div class="kpi-card"><div class="kpi-label">Équipes</div><div class="kpi-val">48</div></div>
+    <div class="kpi-card"><div class="kpi-label">Matchs</div><div class="kpi-val">104</div></div>
+    <div class="kpi-card"><div class="kpi-label">Stades</div><div class="kpi-val">16</div></div>
+    <div class="kpi-card"><div class="kpi-label">Durée</div><div class="kpi-val">39 jours</div></div>
+  </div>
+  <div class="phase-label">Format</div>
+  <div class="mlist">
+    <div class="mrow"><div class="mrow-top"><div class="mdate">11–27 juin</div><div class="mteams">Phase de groupes — 12 groupes de 4</div></div><div class="mrow-bot"><div class="mstade">72 matchs</div></div></div>
+    <div class="mrow"><div class="mrow-top"><div class="mdate">28 juin–3 juil.</div><div class="mteams">32es de finale ✨ Nouveauté 2026</div></div><div class="mrow-bot"><div class="mstade">16 matchs</div></div></div>
+    <div class="mrow"><div class="mrow-top"><div class="mdate">4–7 juil.</div><div class="mteams">Huitièmes de finale</div></div><div class="mrow-bot"><div class="mstade">8 matchs</div></div></div>
+    <div class="mrow"><div class="mrow-top"><div class="mdate">9–11 juil.</div><div class="mteams">Quarts de finale</div></div><div class="mrow-bot"><div class="mstade">4 matchs</div></div></div>
+    <div class="mrow"><div class="mrow-top"><div class="mdate">14–15 juil.</div><div class="mteams">Demi-finales</div></div><div class="mrow-bot"><div class="mstade">2 matchs</div></div></div>
+    <div class="mrow"><div class="mrow-top"><div class="mdate">18 juil.</div><div class="mteams">🥉 Match 3e place</div></div><div class="mrow-bot"><div class="mstade">1 match</div></div></div>
+    <div class="mrow finale"><div class="mrow-top"><div class="mdate">Dim 19 juil.</div><div class="mteams">🏆 Finale — MetLife Stadium, New York</div><div class="mheure">21h00</div></div></div>
+  </div>
+  <div class="note" style="margin-top:.9rem">
+    ⏰ <strong>Décalage horaire :</strong> New York/Miami = Paris −6h · Mexico = Paris −7h · Los Angeles = Paris −9h<br>
+    Match 13h ET = <strong>19h Paris ✅</strong> · Match 15h ET = <strong>21h Paris ✅</strong> · Match 20h ET = <strong>02h Paris 🌙</strong>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  CDM 2026 · Horaires en heure de Paris (CEST, UTC+2) · Sources : FIFA · Flashscore<br>
+  🇫🇷🇵🇹🇲🇦🇩🇿🇨🇻🇹🇷 · Mise à jour mai 2026
+</div>
+
+<script>
+// TABS
+function showTab(id,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('sec-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// FILTRES
+function filtre(tag,btn){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#all-matches .mrow').forEach(r=>{
+    const t=r.dataset.t||'';
+    r.style.display=(tag==='tous'||t.split(' ').includes(tag))?'flex':'none';
+  });
+}
+
+// COMPTE À REBOURS — 11 juin 2026 21h00 Paris = 19h00 UTC
+const TARGET=new Date('2026-06-11T19:00:00Z');
+function tick(){
+  const diff=TARGET-new Date();
+  if(diff<=0){
+    document.getElementById('countdown').innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:1.5rem;color:var(--gold2);text-align:center;padding:.5rem">🏆 C\'est parti — Allez les Bleus ! Força Portugal !</div>';
+    return;
+  }
+  const pad=n=>String(n).padStart(2,'0');
+  document.getElementById('cd-j').textContent=pad(Math.floor(diff/86400000));
+  document.getElementById('cd-h').textContent=pad(Math.floor(diff%86400000/3600000));
+  document.getElementById('cd-m').textContent=pad(Math.floor(diff%3600000/60000));
+  document.getElementById('cd-s').textContent=pad(Math.floor(diff%60000/1000));
+}
+tick();setInterval(tick,1000);
+</script>
+</body>
+</html>
